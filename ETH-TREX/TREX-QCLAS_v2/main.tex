@@ -1,0 +1,89 @@
+%%%%%%%% START DOCUMENT%%%%%%%%%
+\documentclass[11pt,a4paper,twoside,titlepage,openright]{book}
+
+\input{settings/general.tex}
+
+\addbibresource{references.bib}
+
+%% The document starts here
+\begin{document}
+
+%\begin{NoHyper} % for print version
+
+\urlstyle{same} % url link with the same font as the whole text
+
+% ------------ FRONT MATTER ------------------------------------
+\frontmatter
+
+% Title page
+\def\dir{parts}
+
+% finished
+\input{\dir/title_page.tex}
+% \clearpage
+
+\addtocontents{toc}{~\hfill\textbf{Page}\par}
+
+%Abstract - in English
+% \setcounter{page}{1} %page counting start with abstract
+% empty
+% \input{\dir/abstract.tex}
+% \cleardoublepage
+
+%% Table of Content
+\input{\dir/ToC.tex}
+\clearpage
+
+% ------------ MAIN MATTER ------------------------------------
+
+\mainmatter
+
+%arabic page counting starts here
+\cleardoublepage
+\pagenumbering{arabic}
+
+\renewcommand{\thechapter}{\arabic{chapter}}
+
+% done
+\input{\dir/01_introduction.tex}
+\clearpage
+
+% done
+\input{\dir/02_TREX_TrexOS.tex}
+\clearpage
+
+% done
+\input{\dir/03_QCLAS_TDLWintel.tex}
+\clearpage
+
+% done
+\input{\dir/04_TREX-QCLAS_operation.tex}
+\clearpage
+
+% done
+\input{\dir/05_preconcentration_routine.tex}
+\clearpage
+
+% done
+\input{\dir/06_troubleshooting_maintenance.tex}
+\clearpage
+
+% ------------ BIBLIOGRAPHY ------------------------------------
+
+% Add bibliography
+\pagestyle{NoChapter}
+\phantomsection
+\addcontentsline{toc}{chapter}{Bibliography} %add References to the ToC
+%\renewcommand{\bibname}{References} %rename Bibliography to References
+\renewcommand*{\bibfont}{\footnotesize} %set font size to footnotesize, i.e. smaller than the main text 
+\printbibliography
+\clearpage
+
+% ------------ BACK MATTER ------------------------------------
+\appendix
+
+% in progress
+\input{\dir/list_of_abbrev.tex}
+\clearpage
+
+\end{document}

@@ -1,0 +1,283 @@
+% Font stuff
+\usepackage[utf8]{inputenc}
+\usepackage[main=english,ngerman]{babel}
+\usepackage[style=american]{csquotes}
+\usepackage{mathpazo} %Palatino
+\linespread{1.05} %a bit bigger for Palatino
+\usepackage[scaled]{helvet} % ss
+\usepackage{courier} % tt
+\usepackage[T1]{fontenc}
+\usepackage{upquote} %single quotation marks
+\usepackage[nointegrals]{wasysym} % for permille sign \permil
+\usepackage{textgreek} % to write upright capital Delta \textDelta
+\usepackage{upgreek}
+\usepackage{pifont}% http://ctan.org/pkg/pifont, for special symbols
+
+% Page layout
+
+\usepackage[a4paper]{geometry}
+\geometry{paperwidth = 216mm} %paper A4 + 6 mm cut = 216
+\geometry{paperheight = 303mm} %paper A4 + 6 mm cut = 303
+\geometry{bindingoffset=3mm} %binding offset
+\geometry{textwidth=0.8\paperwidth} %textwidth
+\geometry{textheight=0.8\paperheight} %textheight
+\geometry{headsep=0.5cm} %separation between the text and the header
+\geometry{twoside} %twosided text - print version
+% \geometry{twoside=false} %onesided text - e-version
+% \geometry{showframe} %to show frame for each object on the page
+\usepackage{lscape} %creates landscape page in portrait document
+%\usepackage{setspace} %provides features for advance line spacing
+%\doublespacing
+\raggedbottom %all pages will not have exactly the same height, but ‘almost the same height’
+
+
+% to have the broader margin on the binding side of the page, for print version
+\let\tmp\oddsidemargin
+\let\oddsidemargin\evensidemargin
+\let\evensidemargin\tmp
+\reversemarginpar
+
+% \usepackage[a5paper]{geometry}
+% \geometry{paperwidth = 154mm} %paper A5 + 6 mm cut
+% \geometry{paperheight = 216mm} %paper A5 + 6 mm cut
+% \geometry{bindingoffset=5.5mm} %binding offset
+% \geometry{textwidth=10.5cm} %textwidth
+% \geometry{textheight=16.6cm} %textheight
+% \geometry{headsep=0.5cm} %separation between the text and the header
+% \geometry{twoside} %twosided text
+% \usepackage{lscape} %creates landscape page in portrait document
+% %\usepackage{setspace} %provides features for advance line spacing
+% %\doublespacing
+% \raggedbottom %all pages will not have exactly the same height, but ‘almost the same height’
+
+
+% Page heading
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\fancypagestyle{Chapter}{
+	\fancyhf{}
+	\fancyhead[LE]{Ch. \thechapter | \leftmark}
+	\fancyfoot[C]{\thepage}	
+}
+\fancypagestyle{plain}{
+	\renewcommand{\headrulewidth}{0pt}
+	\fancyhf{}
+	\fancyfoot[c]{\thepage}
+}
+\fancypagestyle{NoChapter}{
+	\fancyhf{}
+	\fancyhead[LE]{\leftmark}
+	\fancyfoot[c]{\thepage}
+}
+
+\setlength{\headheight}{15pt} % it should be at least 15 pt
+
+\usepackage{emptypage} %removes headers and footers on empty pages
+
+%section titles
+% \usepackage[compact]{titlesec}
+\usepackage{titlesec}
+\titleformat{\chapter}{}{}{0em}{\bf\LARGE} % to remove "Chapter XY" at the beginning of each chapter
+
+% Math stuff
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{isomath}
+\usepackage[version-1-compatibility,load=prefixed,detect-weight=true, detect-family=true]{siunitx}
+\sisetup{quotient-mode = fraction}
+\usepackage{bm} % to be able to use bold in math mode \mathbf{}
+\usepackage{xfrac}
+
+% Figures, tables, captions
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{ltablex}
+\usepackage[font=small, labelfont=bf]{caption}
+\usepackage{afterpage}
+\usepackage{array}
+\usepackage[table,svgnames]{xcolor}
+\usepackage{threeparttable} %to have notes under a table
+\usepackage{multirow}
+\usepackage{arydshln} % to make a horizontal dashed line
+
+% Chemistry
+\usepackage[version=4]{mhchem}
+
+% Hyphenation
+\usepackage{hyphenat}
+% \tolerance = 7000
+% \hyphenpenalty=10000 % to supress hyphenation completely
+
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
+
+% Graphics
+\usepackage{graphicx}
+\usepackage{rotating}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\usetikzlibrary{shapes.geometric}
+
+% Misc
+\usepackage{xspace}
+% \usepackage[hidelinks]{hyperref}
+
+% PDF metadata for electronic version
+\usepackage[pdftex,
+            hidelinks,
+            pdfauthor={Kristyna Kantnerova},
+            pdftitle={Analysis of clumped isotopes in nitrous oxide: method development and first applications},
+            pdfsubject={PhD thesis},
+            pdfkeywords={clumped isotopes, nitrous oxide, laser spectroscopy}]{hyperref}
+            
+%  \usepackage[svgnames]{xcolor}
+ %\definecolor{Teal}{RGB}{0,128,128}
+%  \usepackage{hyperref}
+ \hypersetup{colorlinks,breaklinks,
+             urlcolor=Teal, % color of url links
+             linkcolor=black, % color in ToC
+             citecolor=Teal} % color of reference year
+            
+\usepackage[defaultlines = 3, all]{nowidow}
+\usepackage{subcaption}
+\usepackage{epstopdf}
+\usepackage{relsize}
+\usepackage[final]{pdfpages}
+%\usepackage{showframe}
+\usepackage{etoolbox}
+\usepackage{verbatim}
+\usepackage{lipsum} %generates lorem ipsum text
+\usepackage{tocloft} % to add dots to ToC
+\renewcommand{\cftchapdotsep}{\cftdotsep} 
+\usepackage[noabbrev]{cleveref}
+\addtolength{\skip\footins}{2pc plus 5pt} % to set a space between a footnote and a main text
+
+% for the \intexttt command
+\usepackage{xstring}
+\newcommand{\intexttt}[1]{%
+  \saveexpandmode\noexpandarg%
+  \texttt{\StrSubstitute[0]{#1}{ }{\textnormal{ }}}%
+  \restoreexpandmode%
+}
+
+%------- BIBLIOGRAPHY SETTINGS --------------------------------
+
+\input{settings/biblatex.tex}
+\newcounter{dummy}
+
+%------- DOCUMENT SETTINGS ------------------------------------
+
+% paragraphs
+\setlength{\parskip}{10pt plus 2pt minus 2pt} %set space between paragraphs
+\setlength\parindent{0pt} %no indent
+%\setlength{\intextsep}{12pt plus 2pt minus 2pt} %set space between text and flows
+%\setlength{\textfloatsep}{12pt plus 2pt minus 2pt} %set distance between floats and text
+\AtBeginEnvironment{equation}{\vspace{-5pt plus 2pt minus 2pt}} %no paragraph space in front of the equation
+\AtEndEnvironment{equation}{\vspace{-5pt plus 2pt minus 2pt}} %no paragraph space after the equation
+
+% section titles
+\titlespacing*{\section}{0pt}{12pt}{0pt}
+\titlespacing*{\subsection}{0pt}{12pt}{0pt}
+
+% Math stuff
+\DeclareMathOperator\erfc{erfc}
+
+
+% set SI units
+\sisetup{
+  separate-uncertainty,
+  repeatunits=false,
+  detect-family,
+  unit-mode=text,
+}
+\DeclareSIUnit\au{arb. units}
+\DeclareSIUnit\Torr{Torr}
+
+
+% write this symbol: @
+\newcommand{\at}{\makeatletter @\makeatother \xspace}
+
+%------- ENVIRONMENT SETTING ------------------------------------
+
+% Abstract 
+\newenvironment{abstracts} {
+	\begin{center}
+    {\Large \bfseries  Abstract}
+    \end{center}
+}
+
+% Zusammenfassung 
+\newenvironment{zusammenfassung} {
+	\begin{center}
+    {\Large \bfseries  Zusammenfassung}
+    \end{center}
+}
+
+% Dedication
+\newenvironment{dedication} {
+	\pagestyle{empty}
+    \begin{center}
+    \vspace*{1.5cm}
+    {\LARGE }
+    \end{center}
+    \vspace{0.5cm}
+    \begin{quote} \begin{center}}
+    {\end{center} \end{quote}
+}
+
+% Acknowledgement
+\newenvironment{acknowledgement} {
+	\begin{center}
+	{\Large \bfseries Acknowledgements}
+	\end{center}
+}
+
+% Curriculum Vitae
+\newenvironment{cv} {
+  {\LARGE \bfseries  Curriculum Vitae}
+}
+
+% Absolutely, definitely, preventing page break
+\newenvironment{absolutelynopagebreak}
+  {\par\nobreak\vfil\penalty0\vfilneg
+   \vtop\bgroup}
+  {\par\xdef\tpd{\the\prevdepth}\egroup
+   \prevdepth=\tpd}
+
+% new column type for chapter stat_therm.tex
+\newcolumntype{x}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+%\newcolumntype{x}[1]{>{\centering\arraybackslash}m{#1}}
+
+
+% having the links in ToC clickable with the package hyperref
+\renewcommand{\theHchapter}{\arabic{chapter}\thechapter}
+
+% be able to change the ToC depth mid-document
+\newcommand{\changelocaltocdepth}[1]{%
+  \addtocontents{toc}{\protect\setcounter{tocdepth}{#1}}%
+  \setcounter{tocdepth}{#1}%
+}
+
+\setcounter{tocdepth}{2}
+
+% having list of abbreviations sorted alphabetically
+\usepackage{datatool}% http://ctan.org/pkg/datatool
+\newcommand{\sortitem}[1]{%
+  \DTLnewrow{list}% Create a new entry
+  \DTLnewdbentry{list}{description}{#1}% Add entry as description
+}
+\newenvironment{sortedlist}{%
+  \DTLifdbexists{list}{\DTLcleardb{list}}{\DTLnewdb{list}}% Create new/discard old list
+}{%
+  \DTLsort{description}{list}% Sort list
+  \begin{itemize}%
+    \DTLforeach*{list}{\theDesc=description}{%
+      \item \theDesc}% Print each item
+  \end{itemize}%
+}
+
